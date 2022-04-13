@@ -10,21 +10,19 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "esModuleInterop": true,
-    "lib": ["esnext", "dom","dom.iterable",
-      "scripthost"],
-      "importHelpers": true,
-      "skipLibCheck": true,
-      "allowSyntheticDefaultImports": true,
-      "baseUrl": ".",
-      "paths": {
-        "/@/*": [ // / to begin with.
-          "src/*"
-        ]
-      },
+    "lib": ["esnext", "dom", "dom.iterable", "scripthost"],
+    "importHelpers": true,
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "paths": {
+      "/@/*": [
+        // / to begin with.
+        "src/*"
+      ]
+    }
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
   "references": [{ "path": "./tsconfig.node.json" }],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }
