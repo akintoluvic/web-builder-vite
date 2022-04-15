@@ -1,15 +1,22 @@
 <template>
   <div
-    class="overflow-y-scroll py-14 bg-slate-200 border-2 border-slate-300 mx-auto rounded-3xl"
-    :class="[deviceViewWidth, viewType === 'mobile' ? '' : 'h-full']"
+    class="overflow-y-scroll py-14 border-2 mx-auto rounded-3xl"
+    :class="[
+      deviceViewWidth,
+      viewType === 'mobile' ? '' : 'h-full',
+      darkMode
+        ? 'bg-slate-600 border-slate-500'
+        : ' bg-slate-200 border-slate-300',
+    ]"
   >
     <iframe
       ref="iframe"
       id="iframe"
-      class="bg-white mx-auto dark:bg-gray-900 border-2 border-slate-300"
+      class="bg-white mx-auto dark:bg-gray-900 border-2"
       :class="[
         iframeViewWidth,
         viewType === 'mobile' ? 'mobile-height' : 'h-full',
+        darkMode ? 'border-slate-500' : ' border-slate-300',
       ]"
       title="Page components preview"
       loading="lazy"
@@ -20,6 +27,7 @@
 <script>
   import { useViewOrCode } from '@/compossable/view-mode'
   import { toRefs, onMounted, ref, onUnmounted } from 'vue'
+  import { useDarkMode } from '@/compossable/dark-mode'
 
   export default {
     name: 'IframeView',
@@ -28,6 +36,7 @@
     },
     setup(props) {
       const { code } = toRefs(props)
+      const { darkMode } = useDarkMode()
       const {
         viewWidth,
         codeView,
@@ -60,6 +69,7 @@
         deviceViewWidth,
         iframeViewWidth,
         viewType,
+        darkMode,
       }
     },
   }
