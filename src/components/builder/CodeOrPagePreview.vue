@@ -36,15 +36,15 @@
     </main>
   </div>
 </template>
-<script>
+<script lang="ts">
   import { useComponents } from '@/compossable/components'
   import { useDarkMode } from '@/compossable/dark-mode'
   import { useTheme } from '@/compossable/theme'
   import { useViewOrCode } from '@/compossable/view-mode'
-  import { ref, watch, onMounted } from 'vue'
+  import { ref, watch, onMounted, defineComponent } from 'vue'
   import IframeView from '@/components/builder/IframeView.vue'
 
-  export default {
+  export default defineComponent({
     name: 'CodeOrPagePreview',
     components: {
       IframeView,
@@ -55,19 +55,19 @@
       const { deviceViewWidth, codeView } = useViewOrCode()
       const { theme } = useTheme()
 
-      const codeBlock = ref('')
-      const codeForView = ref('')
-      const codeForPreview = ref('')
-      const copyButtonText = ref('Copy Code')
+      const codeBlock = ref<any>('')
+      const codeForView = ref<string>('')
+      const codeForPreview = ref<string>('')
+      const copyButtonText = ref<string>('Copy Code')
 
-      const beautifyHTML = (codeStr) => {
-        const process = (str) => {
+      const beautifyHTML = (codeStr: string) => {
+        const process = (str: string) => {
           let div = document.createElement('div')
           div.innerHTML = str.trim()
           return format(div, 0).innerHTML.trim()
         }
 
-        const format = (node, level) => {
+        const format = (node: any, level: any) => {
           let indentBefore = new Array(level++ + 1).join('  '),
             indentAfter = new Array(level - 1).join('  '),
             textNode
@@ -142,5 +142,5 @@
         copyButtonText,
       }
     },
-  }
+  })
 </script>
