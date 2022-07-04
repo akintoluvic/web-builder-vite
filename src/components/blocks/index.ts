@@ -11,6 +11,9 @@ import HeaderOne from '@/components/blocks/header/HeaderOne.vue'
 import HeroOne from '@/components/blocks/hero/HeroOne.vue'
 
 export default function getBlock() {
+  // HeroOne.props.heroType = 'center'
+  console.log(HeroOne)
+
   return {
     Blog: {
       BlogA: BlogA,
@@ -21,17 +24,17 @@ export default function getBlock() {
     },
     Hero: {
       HeroA: HeroOne,
-      // HeroB: <HeroOne heroType="center" />,
-      // HeroC: <HeroOne heroType="image-first" />,
+      HeroB: HeroOne,
+      HeroC: HeroOne,
     },
     Contact: {
       ContactA: ContactA,
     },
     Header: {
       HeaderA: HeaderOne,
-      // HeaderB: <HeaderOne navOption="all-left" />,
-      // HeaderC: <HeaderOne navOption="brand-middle" />,
-      // HeaderD: <HeaderOne navOption="space-between" />,
+      HeaderB: HeaderOne,
+      HeaderC: HeaderOne,
+      HeaderD: HeaderOne,
     },
   }
 }
