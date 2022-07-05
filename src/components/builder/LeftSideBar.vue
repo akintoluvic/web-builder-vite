@@ -73,14 +73,14 @@
   import { ref } from 'vue'
 
   interface dragFace {
-    0: string
+    0: string[]
     1: number
   }
 
   export default {
     name: 'LeftSideBar',
     setup() {
-      const dragStartItem = ref<dragFace>(['', 1])
+      const dragStartItem = ref<dragFace>([[], 0])
       const { theme } = useTheme()
       const { setViewType } = useViewOrCode()
       const {
@@ -114,7 +114,7 @@
       }
 
       const handleDrop = (dropIndex: number) => {
-        let tempArr = [...selectedIcons.value]
+        let tempArr: string[][] = [...selectedIcons.value]
         tempArr.splice(dragStartItem.value[1], 1)
         tempArr.splice(dropIndex, 0, dragStartItem.value[0])
         selectedIcons.value = tempArr
@@ -132,6 +132,7 @@
 
         handleDragStart,
         handleDrop,
+        dragStartItem,
       }
     },
   }
