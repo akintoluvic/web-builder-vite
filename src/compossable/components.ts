@@ -3,15 +3,23 @@ import getIcons from '@/components/icons'
 import getBlocks from '@/components/blocks'
 
 const iconList = shallowRef<object>({})
-const blocksList = shallowRef<object>({})
+const blocksList = shallowRef<Record<string, Record<string, unknown>>>({})
 const blockListArr = shallowRef<string[]>([])
-const selectedIcons = ref<string[]>([])
+const selectedIcons = ref<string[][]>([])
+
+/**
+ * [
+ * ['hey', 'ho'],
+ * []
+ * []
+ * ]
+ */
 
 blocksList.value = getBlocks()
 iconList.value = getIcons()
 
 export function useComponents() {
-  const addComponent = (val: string) => {
+  const addComponent = (val: string[]) => {
     selectedIcons.value = [...selectedIcons.value, val]
   }
 
