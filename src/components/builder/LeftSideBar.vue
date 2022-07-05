@@ -99,7 +99,7 @@
         )
       }
 
-      const addSelectComponent = (val: string) => {
+      const addSelectComponent = (val: string[]) => {
         addComponent(val)
         setViewType('desktop')
       }
