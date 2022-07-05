@@ -7,14 +7,6 @@ const blocksList = shallowRef<Record<string, Record<string, unknown>>>({})
 const blockListArr = shallowRef<string[]>([])
 const selectedIcons = ref<string[][]>([])
 
-/**
- * [
- * ['hey', 'ho'],
- * []
- * []
- * ]
- */
-
 blocksList.value = getBlocks()
 iconList.value = getIcons()
 
