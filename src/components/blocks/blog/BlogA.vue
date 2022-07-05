@@ -255,7 +255,7 @@
     </div>
   </section>
 </template>
-<script>
+<script lang="ts">
   import { useTheme } from '@/compossable/theme'
   export default {
     name: 'BlogA',
