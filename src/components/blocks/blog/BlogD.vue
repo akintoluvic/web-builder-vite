@@ -140,11 +140,13 @@
 </template>
 <script lang="ts">
   import { useTheme } from '@/compossable/theme'
-  export default {
+  import { defineComponent } from 'vue'
+
+  export default defineComponent({
     data() {
       return {
         theme: useTheme(),
       }
     },
-  }
+  })
 </script>
