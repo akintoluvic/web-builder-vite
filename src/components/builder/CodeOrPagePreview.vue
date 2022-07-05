@@ -23,15 +23,21 @@
         v-else-if="deviceViewWidth === 'w-full'"
         class="px-8 mb-12 min-h-screen"
       >
-        <template v-for="(currentIcon, index) in selectedIcons" :key="index">
-          <component :is="blocksList[currentIcon[1]][currentIcon[0]]" />
+        <template v-for="currentIcon in selectedIcons" :key="currentIcon[0]">
+          <component
+            :is="blocksList[currentIcon[1]][currentIcon[0]]"
+            ...props="propsObject[currentIcon[0]]"
+          />
         </template>
       </main>
       <IframeView v-else :code="codeForPreview" />
     </div>
     <main class="hidden px-8 my-12 min-h-screen" ref="codeBlock">
-      <template v-for="(currentIcon, index) in selectedIcons" :key="index">
-        <component :is="blocksList[currentIcon[1]][currentIcon[0]]" />
+      <template v-for="currentIcon in selectedIcons" :key="currentIcon[0]">
+        <component
+          :is="blocksList[currentIcon[1]][currentIcon[0]]"
+          ...props="propsObject[currentIcon[0]]"
+        />
       </template>
     </main>
   </div>
@@ -41,6 +47,7 @@
   import { useDarkMode } from '@/compossable/dark-mode'
   import { useTheme } from '@/compossable/theme'
   import { useViewOrCode } from '@/compossable/view-mode'
+  import { propsObject } from '@/compossable/props'
   import { ref, watch, onMounted, defineComponent } from 'vue'
   import IframeView from '@/components/builder/IframeView.vue'
 
@@ -140,6 +147,7 @@
         codeView,
         copyToClipboard,
         copyButtonText,
+        propsObject,
       }
     },
   })
