@@ -63,7 +63,7 @@
           class="text-xs text-gray-50 dark:text-gray-400 dark:text-opacity-90 mt-3"
         >
           Chicharrones blog helvetica normcore iceland tousled brook viral
-          artisan.
+          artisan trghdcjjs.
         </p>
       </div>
     </div>
