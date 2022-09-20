@@ -92,6 +92,7 @@
         removeComponent,
       } = useComponents()
 
+      // Methods
       const blockAvailable = (type: string, index: number) => {
         return (
           blocksList.value[type] !== undefined &&
