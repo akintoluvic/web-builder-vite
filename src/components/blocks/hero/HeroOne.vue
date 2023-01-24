@@ -38,7 +38,7 @@
         class="md:w-1/2 w-5/6"
         :class="[
           imageFirst,
-          heroStype === 'center' ? 'lg:w-2/6' : 'lg:max-w-lg lg:w-full',
+          heroType === 'center' ? 'lg:w-2/6' : 'lg:max-w-lg lg:w-full',
         ]"
       >
         <img
