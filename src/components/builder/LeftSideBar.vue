@@ -53,16 +53,19 @@
         :key="index"
         class="relative shadow-md dark:bg-slate-600 dark:shadow-lg dark:drop-shadow-xl rounded mb-5 overflow-hidden hover:outline hover:outline-slate-300"
         :class="
-          blockAvailable(type, index) ? 'cursor-pointer' : 'cursor-not-allowed'
+          blockAvailable(type + '', index)
+            ? 'cursor-pointer'
+            : 'cursor-not-allowed'
         "
         @click="
-          blockAvailable(type, index) && addSelectComponent([index + '', type])
+          blockAvailable(type + '', index) &&
+            addSelectComponent([index + '', type + ''])
         "
         aria-labelledby="component icon button"
       >
         <component :is="icon" class="text-gray-400" />
         <span
-          v-if="!blockAvailable(type, index)"
+          v-if="!blockAvailable(type + '', index)"
           class="absolute inset-0 z-10 flex justify-center items-center text-xs bg-gray-200 bg-opacity-60 dark:bg-opacity-30 w-full h-full text-gray-900 dark:text-gray-300"
         >
           <span class="text-xs">Coming soon</span>

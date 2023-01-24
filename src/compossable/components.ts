@@ -2,7 +2,11 @@ import { ref, onMounted, shallowRef } from 'vue'
 import getIcons from '@/components/icons'
 import getBlocks from '@/components/blocks'
 
-const iconList = shallowRef<object>({})
+interface Icons {
+  [key: string]: object
+}
+
+const iconList = shallowRef<Icons>({})
 const blocksList = shallowRef<Record<string, Record<string, unknown>>>({})
 const blockListArr = shallowRef<string[]>([])
 const selectedIcons = ref<string[][]>([])
@@ -25,6 +29,7 @@ export function useComponents() {
         blockListArr.value.push(`${name},${type}`)
       )
     })
+    console.log(iconList.value)
   })
 
   return {
