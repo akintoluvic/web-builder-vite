@@ -51,7 +51,7 @@
           blockAvailable(type, index) ? 'cursor-pointer' : 'cursor-not-allowed'
         "
         @click="
-          blockAvailable(type, index) && addSelectComponent([index + '', type])
+          blockAvailable(type, index) && addSelectComponent([index, type])
         "
         aria-labelledby="component icon button"
       >
