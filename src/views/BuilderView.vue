@@ -20,7 +20,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
   import TopBar from '@/components/builder/TopBar.vue'
   import LeftSideBar from '@/components/builder/LeftSideBar.vue'
   import { useTheme } from '@/compossable/theme'
