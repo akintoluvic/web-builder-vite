@@ -21,7 +21,7 @@
           />
         </svg>
       </div>
-      <h1 class="text-white">DragBuilder</h1>
+      <h1 class="text-white">WeBuilder</h1>
     </div>
 
     <div class="flex space-x-1">
