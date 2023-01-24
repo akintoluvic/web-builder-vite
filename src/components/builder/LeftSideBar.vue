@@ -39,7 +39,12 @@
     >
       Add section
     </h3>
-    <div v-for="(icons, type) in iconList" :key="type" class="mt-5 mx-2 px-2">
+    <div
+      v-if="iconList"
+      v-for="(icons, type) in iconList"
+      :key="type"
+      class="mt-5 mx-2 px-2"
+    >
       <h2 class="mb-5 text-sm text-slate-600 dark:text-slate-500">
         {{ type }}
       </h2>
@@ -51,7 +56,7 @@
           blockAvailable(type, index) ? 'cursor-pointer' : 'cursor-not-allowed'
         "
         @click="
-          blockAvailable(type, index) && addSelectComponent([index, type])
+          blockAvailable(type, index) && addSelectComponent([index + '', type])
         "
         aria-labelledby="component icon button"
       >
